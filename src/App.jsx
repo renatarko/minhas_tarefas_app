@@ -7,25 +7,14 @@ import { Cards } from "./Componentes/cards/cards"
 
 export const App = () => {
   
-  const [newTask, setNewTask] = React.useState("")
-  const [addTask, setAddTask] = React.useState("")
-
-
-  const handleTask = () => {
-    setNewTask("")
-    setAddTask(newTask)
-    console.log(newTask)
-  }
-
-
   return (
     <div className="App">
       <div className="main">
 
-        <Header newTask={newTask} setNewTask={setNewTask} handleTask={handleTask} />
+        <Header />
 
         <section className="container-box">
-          <Cards newTask={addTask} />
+          <Cards />
         </section>
       </div>
     </div>

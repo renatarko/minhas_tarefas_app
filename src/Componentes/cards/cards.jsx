@@ -1,22 +1,19 @@
-import React,{  useState } from "react"
+import React,{  useState, useContext } from "react"
 import { FaChevronRight } from "react-icons/fa";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import "./style.css"
+import { TaskContext } from '../../context/TaskProvider'
 
-export const Cards = ({newTask}) => {
+export const Cards = () => {
   
+  const {newTask} = useContext(TaskContext);  
+
   const [toDo, setToDo] = useState([])
   const [toDoing, setToDoing] = useState([])
   const [toDone, setToDone] = useState([])
 
-  // const handleTask = () => {
-  //   setToDo([...toDo, newTask])
-  //   setNewTask("")
-  //   console.log(toDo)
-  // }
-
   React.useEffect(() => {
-    if (newTask.trim() !== "") {
+    if (newTask && newTask.trim() !== "") {
            setToDo([...toDo, newTask])
     }
    

@@ -88,6 +88,7 @@
   .title {
     align-self: center;
     margin-bottom: 10px;
+    font-size: 1.5rem;
   }
   .button-add {
     width: 30%;
@@ -100,8 +101,14 @@
   }
 }
 
-@media (max-width: 570px) {
+@media (max-width: 342px) {
   .title {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
+  }
+  .button-add {
+    width: 70%;
+  }
+  .input-add {
+    width: 70%;
   }
 }

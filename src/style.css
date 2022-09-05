@@ -22,4 +22,5 @@ body {
   align-items: center;
   justify-items: center;
   gap: 12px;
+  padding: 0px 10px;
 }

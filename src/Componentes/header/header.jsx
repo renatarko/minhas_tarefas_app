@@ -8,15 +8,19 @@ export const Header = () => {
 
   const { createTask } = React.useContext(TaskContext);
 
+  const handleClick = () => {
+    createTask(task)
+    setTask("")
+  }
 
   return (
     <>
       <div className="header-title">
         <h1 className="title">Tarefas do dia</h1>
         <input className="input-add" type="text" value={task}
-          placeholder="Adcione sua tarefa"
+          placeholder="Digite sua tarefa"
           onChange={(e) => setTask(e.target.value)} />
-        <button className="button-add" onClick={() => createTask(task)}>Adcionar</button>
+        <button className="button-add" onClick={handleClick}>Criar</button>
       
       </div>
     </>

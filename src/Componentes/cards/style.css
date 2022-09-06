@@ -1,7 +1,22 @@
 .box-work {
   background-color: #5ab195;
   width: 100%;
-  height: 70%;
+  height: 80%;
+  border-radius: 10px;
+  overflow-y: scroll;
+}
+
+.box-work::-webkit-scrollbar {
+  width: 8px;
+}
+
+.box-work::-webkit-scrollbar-track {
+  background: #7bcfb4;
+  border-radius: 10px;
+}
+
+.box-work::-webkit-scrollbar-thumb {
+  background: #d3efe6;
   border-radius: 10px;
 }
 

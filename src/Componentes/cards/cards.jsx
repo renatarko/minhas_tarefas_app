@@ -6,54 +6,45 @@ import { TaskContext } from '../../context/TaskProvider'
 
 export const Cards = () => {
   
-  const {newTask} = useContext(TaskContext);  
+  const { newTask } = useContext(TaskContext);
 
-  const [toDo, setToDo] = useState([])
-  const [toDoing, setToDoing] = useState([])
-  const [toDone, setToDone] = useState([])
+  const [todo, setToDo] = useState([])
+  const [doing, setDoing] = useState([])
+  const [done, setDone] = useState([])
 
   React.useEffect(() => {
     if (newTask && newTask.trim() !== "") {
-           setToDo([...toDo, newTask])
+           setToDo([...todo, newTask])
     }
-   
+    
   }, [newTask]);
 
-
   const moveToDoing = (task) => {
-    let index = toDo.indexOf(task)
-    toDo.splice(index, 1)
-    setToDoing([...toDoing, task])
-    console.log(toDo)
+    let index = todo.indexOf(task)
+    todo.splice(index, 1)
+    setDoing([...doing, task])
+
   }
 
   const moveToDone = (task) => {
-    let index = toDoing.indexOf(task)
-    toDoing.splice(index, 1)
-    setDoing(...toDoing.filter(item => item !== task))
-    setToDone([...toDone, task])
+    let index = doing.indexOf(task)
+    doing.splice(index, 1)
+    // setDoing(...doing.filter(item => item !== task))
+    setDone([...done, task])
   }
 
   const deleteTaskToDo = (task) => {
-    const arrayFilterToDo = toDo.filter((valorAtual) => {
-     return valorAtual !== task
-    })
-    setToDo([...arrayFilterToDo])
+    setToDo([...todo.filter((item) => item !== task)])
   }
 
-  const deleteTaskToDoing = (task) => {
-   let index = toDoing.indexOf(task)
-    toDoing.splice(index, 1)
-    setToDo([...toDoing])
+  const deleteTaskDoing = (task) => {
+   let arrayFilterDoing = doing.filter((item) => item !== task )
+    setDoing([...arrayFilterDoing])
   }
 
-  const deleteTaskToDone = (task) => {
-   const arrayFilterToDone = toDone.filter((valorAtual) => {
-     return valorAtual !== task
-    })
-    setToDone([...arrayFilterToDone])
-    // setToDone(...toDone.filter( item  => item !== task))
-    console.log(arrayFilterToDone)
+  const deleteTaskDone = (task) => {
+    let arrayFilter = done.filter((item) => item !== task )
+    setDone([...arrayFilter])
   }
 
   return (
@@ -61,11 +52,9 @@ export const Cards = () => {
     <div className="box-work">
       <div className="box-title">
         <p className="p-title">Tarefas para fazer!</p>
-        {/* <input className="input-add" type="text" value={newTask} placeholder="Adcione sua tarefa" onChange={(e) => setNewTask(e.target.value) } />
-        <button className="button-add" onClick={handleTask}>Adcionar</button> */}
       <div className="result"> 
-        {toDo.map((task) =>
-        <div className="result-work" key={task}>{task}
+        {todo.map((task, index) =>
+        <div className="result-work" key={index}>{task}
         <div className="container-icons">
           <FaChevronRight className="icon-arrow" onClick={() => moveToDoing(task)} />
           <AiOutlineCloseCircle className="icon-close" onClick={() => deleteTaskToDo(task) } />
@@ -79,11 +68,11 @@ export const Cards = () => {
       <div className="box-work">
         <div className="p-title">Tarefa em Andamento</div>
         <div className="result">
-          {toDoing.map((task) =>
+          {doing.map((task) =>
             <div className="result-work" key={task}>{task}
               <div className="container-icons" >
                 <FaChevronRight className="icon-arrow" onClick={() => moveToDone(task)} />
-                <AiOutlineCloseCircle className="icon-close" onClick={() => deleteTaskToDoing(task) } />
+                <AiOutlineCloseCircle className="icon-close" onClick={() => deleteTaskDoing(task) } />
             </div>
             </div>
           )}  
@@ -92,10 +81,10 @@ export const Cards = () => {
           <div className="box-work">
         <p className="p-title">Tarefas Finalizadas!</p>
         <div className="result">
-          {toDone.map((task) =>
+          {done.map((task) =>
             <div className="result-work" key={task}>{task}
               <div className="container-icons" >
-                <AiOutlineCloseCircle className="icon-close" onClick={() => deleteTaskToDone(task) } />
+                <AiOutlineCloseCircle className="icon-close" onClick={() => deleteTaskDone(task) } />
             </div>
             </div>
           )}  

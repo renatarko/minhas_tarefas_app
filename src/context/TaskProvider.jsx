@@ -1,8 +1,9 @@
 import React from 'react'
 
+
 export const TaskContext = React.createContext()
 
-export const TaskProvider = ({children}) => {
+export const TaskProvider = ({ children }) => {
 
   const [newTask, setNewTask] = React.useState("")
 
@@ -14,6 +15,5 @@ export const TaskProvider = ({children}) => {
     newTask,
     createTask
   }
-    
   return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>
 }

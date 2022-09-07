@@ -81,13 +81,13 @@
   }
   .container-box {
     grid-template-columns: 1fr;
-    gap: 0;
     padding: 10px;
-    height: 80%;
+    height: 100vh;
+    gap: 0;
   }
 
   .box-work {
-    height: 90%;
+    height: 300px;
   }
   .p-title {
     font-size: 1rem;
@@ -96,9 +96,7 @@
 
 @media (max-width: 570px) {
   .header-title {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+    gap: 10px;
   }
   .title {
     align-self: center;
@@ -114,14 +112,24 @@
     width: 50%;
     padding: 8px;
   }
+  .result-work {
+    font-size: 0.9rem;
+  }
 }
 
-@media (max-width: 342px) {
+@media (max-width: 395px) {
+  .header-title {
+    gap: 0;
+    height: 15%;
+  }
   .title {
     font-size: 1.2rem;
   }
+  .header-input {
+    padding: 10px;
+  }
   .button-add {
-    width: 70%;
+    width: 30%;
   }
   .input-add {
     width: 70%;

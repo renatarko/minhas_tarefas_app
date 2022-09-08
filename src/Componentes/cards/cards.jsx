@@ -106,7 +106,7 @@ export const Cards = () => {
     </div>
       
     <div className="box-work">
-      <div className="p-title">Tarefa em Andamento</div>
+      <div className="p-title">Tarefas em Andamento</div>
       <div className="result">
           {doing.map((task, index) =>
             <div className="result-work" key={index}>{task}

@@ -83,7 +83,7 @@
     grid-template-columns: 1fr;
     padding: 10px;
     height: 100vh;
-    gap: 0;
+    gap: 10px;
   }
 
   .box-work {

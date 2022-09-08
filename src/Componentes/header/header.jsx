@@ -17,8 +17,7 @@ export const Header = () => {
   return (
     <>
       <div className="header-title">
-        <h1 className="title">Tarefas do dia - <Time /></h1>
-        
+        <h1 className="title">Tarefas do dia <Time /> </h1>         
       <div className="header-input">
         <input
           className="input-add"

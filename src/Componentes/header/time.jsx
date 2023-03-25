@@ -1,17 +1,13 @@
-import React from "react"
-import { FaCalendarCheck } from "react-icons/fa";
-import "./style_time.css"
+import React from "react";
+import "./style_time.css";
 
 export function Time() {
-
   let dateString = new Date().toLocaleDateString();
-  let formattedString = dateString.replace(", ", " - ");  
-  
+  let formattedString = dateString.replace(", ", " - ");
+
   return (
     <>
-    <span className="time"><FaCalendarCheck /> {formattedString}</span>
-    
+      <span className="time"> {formattedString}</span>
     </>
-    
-  )
+  );
 }

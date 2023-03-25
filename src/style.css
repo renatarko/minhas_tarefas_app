@@ -23,4 +23,6 @@ body {
   justify-items: center;
   gap: 12px;
   padding: 0px 10px;
+  position: absolute;
+  top: 8rem;
 }

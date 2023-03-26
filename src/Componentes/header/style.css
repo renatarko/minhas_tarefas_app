@@ -106,10 +106,6 @@
   }
 
   .title {
-    position: absolute;
-    bottom: 37rem;
-    padding: 0.5rem;
-    font-size: 0.9rem;
-    /* display: none; */
+    display: none;
   }
 }

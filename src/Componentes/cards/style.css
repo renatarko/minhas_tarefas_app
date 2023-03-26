@@ -117,7 +117,7 @@ span {
 @media (max-width: 655px) {
   .container-box {
     flex-direction: column;
-    top: 6rem;
+    top: 3rem;
   }
 
   .p-title {

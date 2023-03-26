@@ -75,13 +75,17 @@
     right: 0;
     margin: 0 auto;
     font-size: 2rem;
-    color: #20f8a2;
+    color: #0c855f;
     cursor: pointer;
     transition: 0.3s;
   }
 
   .icon-plus:hover {
     transform: translateY(-5px);
+  }
+
+  .header-title.show .icon-plus {
+    transform: rotate(45deg);
   }
 
   .header-title.show {

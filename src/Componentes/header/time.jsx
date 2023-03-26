@@ -7,7 +7,7 @@ export function Time() {
 
   return (
     <>
-      <span className="time"> criado: {formattedString}</span>
+      <span className="time">{formattedString}</span>
     </>
   );
 }

@@ -34,7 +34,7 @@ export const Header = () => {
             onChange={(e) => setTask(e.target.value)}
           />
           <button className="button-add" onClick={handleClick}>
-            Criar
+            Adcionar
           </button>
         </div>
         <BsPlusSquareFill className="icon-plus" onClick={showHeaderOnRespo} />

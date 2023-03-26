@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { FaChevronRight } from "react-icons/fa";
-import { HiChevronDown, HiX } from "react-icons/hi";
+import { HiCheck, HiChevronDown, HiX } from "react-icons/hi";
 import { TaskContext } from "../../context/TaskProvider";
 import { Time } from "../header/time";
 import "./style.css";
@@ -85,75 +85,110 @@ export const Cards = () => {
     localStorage.setItem("done", JSON.stringify(filtedDone));
   };
 
-  function showBoxWork() {
-    const boxWork = document.querySelector(".box-work");
-    boxWork.classList.toggle("showBox");
-  }
+  const [showBox, setShowBox] = useState({
+    do: false,
+    doing: false,
+    done: false,
+  });
 
   return (
     <>
-      <div className="box-work">
+      <div className="container">
         <div className="p-title">
-          <p>Tarefas para fazer</p>
+          <p className="p-works">Tarefas para fazer</p>
+          <HiChevronDown
+            className="icon-showMore"
+            onClick={() => setShowBox({ do: !showBox.do })}
+            style={showBox.do ? { transform: "rotate(180deg)" } : ""}
+            name="do"
+          />
         </div>
-        <div className="result">
-          {todo.map((task, index) => (
-            <div className="result-work" key={index}>
-              <span>{task}</span>
-              <div className="container-icons">
-                <FaChevronRight
-                  className="icon-arrow"
-                  onClick={() => moveToDoing(task)}
-                />
-                <HiX
-                  className="icon-close"
-                  onClick={() => deleteTaskToDo(task)}
-                />
+
+        <div
+          className="box-work"
+          style={showBox.do ? { height: "auto" } : { height: "6rem" }}
+        >
+          <div className="result">
+            {todo.map((task, index) => (
+              <div className="result-work" key={index}>
+                <span>{task}</span>
+                <div className="container-icons">
+                  <FaChevronRight
+                    className="icon-arrow"
+                    onClick={() => moveToDoing(task)}
+                  />
+                  <HiCheck
+                    className="icon-close"
+                    onClick={() => deleteTaskToDo(task)}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="box-work">
+      <div className="container">
         <div className="p-title">
-          <p>Tarefas em Andamento</p>
+          <p className="p-works">Tarefas em Andamento</p>
+          <HiChevronDown
+            className="icon-showMore"
+            onClick={() => setShowBox({ doing: !showBox.doing })}
+            style={showBox.doing ? { transform: "rotate(180deg)" } : ""}
+            name="doing"
+          />
         </div>
-
-        <div className="result">
-          {doing.map((task, index) => (
-            <div className="result-work" key={index}>
-              <span>{task}</span>
-              <div className="container-icons">
-                <FaChevronRight
-                  className="icon-arrow"
-                  onClick={() => moveToDone(task)}
-                />
-                <HiX
-                  className="icon-close"
-                  onClick={() => deleteTaskDoing(task)}
-                />
+        <div
+          className="box-work"
+          style={showBox.doing ? { height: "auto" } : { height: "6rem" }}
+        >
+          <div className="result">
+            {doing.map((task, index) => (
+              <div className="result-work" key={index}>
+                <span>{task}</span>
+                <div className="container-icons">
+                  <FaChevronRight
+                    className="icon-arrow"
+                    onClick={() => moveToDone(task)}
+                  />
+                  <HiCheck
+                    className="icon-close"
+                    onClick={() => deleteTaskDoing(task)}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-      <div className="box-work">
+
+      <div className="container">
         <div className="p-title">
-          <p>Tarefas Finalizadas</p>
+          <p className="p-works">Tarefas Finalizadas</p>
+          <HiChevronDown
+            className="icon-showMore"
+            name="done"
+            onClick={() => setShowBox({ done: !showBox.done })}
+            style={showBox.done ? { transform: "rotate(180deg)" } : ""}
+          />
         </div>
-        <div className="result">
-          {done.map((task, index) => (
-            <div className="result-work" key={index}>
-              <span>{task}</span>
-              <div className="container-icons">
-                <HiX
-                  className="icon-close"
-                  onClick={() => deleteTaskDone(task)}
-                />
+        <div
+          className="box-work"
+          style={showBox.done ? { height: "auto" } : { height: "6rem" }}
+        >
+          <div className="result">
+            {done.map((task, index) => (
+              <div className="result-work" key={index}>
+                <span>{task}</span>
+                <div className="container-icons">
+                  <HiCheck
+                    className="icon-close"
+                    onClick={() => deleteTaskDone(task)}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </>

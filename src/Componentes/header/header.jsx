@@ -1,6 +1,7 @@
 import React from "react";
 import { TaskContext } from "../../context/TaskProvider";
 import { Time } from "./time";
+import { BsPlusSquareFill } from "react-icons/bs";
 import "./style.css";
 
 export const Header = () => {
@@ -12,6 +13,11 @@ export const Header = () => {
     createTask(task);
     setTask("");
   };
+
+  function showHeaderOnRespo() {
+    const header = document.querySelector(".header-title");
+    header.classList.toggle("show");
+  }
 
   return (
     <>
@@ -31,6 +37,7 @@ export const Header = () => {
             Criar
           </button>
         </div>
+        <BsPlusSquareFill className="icon-plus" onClick={showHeaderOnRespo} />
       </div>
     </>
   );

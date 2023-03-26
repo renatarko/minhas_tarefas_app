@@ -1,23 +1,20 @@
-import React from 'react'
-import "./style.css"
+import React from "react";
+import "./style.css";
 
-import { Header } from "./Componentes/header/header"
-import { Cards } from "./Componentes/cards/cards"
-
+import { Header } from "./Componentes/header/header";
+import { Cards } from "./Componentes/cards/cards";
 
 export const App = () => {
-  
   return (
     <div className="App">
-      <div className="main">
-
+      <main className="main">
+        <p className="me">Feito por Renata K.</p>
         <Header />
 
         <section className="container-box">
           <Cards />
         </section>
-      </div>
+      </main>
     </div>
-  )
-}
-
+  );
+};

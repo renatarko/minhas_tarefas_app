@@ -1,7 +1,8 @@
 import React, { useState, useContext } from "react";
 import { FaChevronRight } from "react-icons/fa";
-import { AiOutlineClose } from "react-icons/ai";
+import { HiChevronDown, HiX } from "react-icons/hi";
 import { TaskContext } from "../../context/TaskProvider";
+import { Time } from "../header/time";
 import "./style.css";
 
 const storeRemoveTodo = (todo) => {
@@ -84,33 +85,41 @@ export const Cards = () => {
     localStorage.setItem("done", JSON.stringify(filtedDone));
   };
 
+  function showBoxWork() {
+    const boxWork = document.querySelector(".box-work");
+    boxWork.classList.toggle("showBox");
+  }
+
   return (
     <>
       <div className="box-work">
-        <div className="box-title">
-          <p className="p-title">Tarefas para fazer!</p>
-          <div className="result">
-            {todo.map((task, index) => (
-              <div className="result-work" key={index}>
-                <span>{task}</span>
-                <div className="container-icons">
-                  <FaChevronRight
-                    className="icon-arrow"
-                    onClick={() => moveToDoing(task)}
-                  />
-                  <AiOutlineClose
-                    className="icon-close"
-                    onClick={() => deleteTaskToDo(task)}
-                  />
-                </div>
+        <div className="p-title">
+          <p>Tarefas para fazer</p>
+        </div>
+        <div className="result">
+          {todo.map((task, index) => (
+            <div className="result-work" key={index}>
+              <span>{task}</span>
+              <div className="container-icons">
+                <FaChevronRight
+                  className="icon-arrow"
+                  onClick={() => moveToDoing(task)}
+                />
+                <HiX
+                  className="icon-close"
+                  onClick={() => deleteTaskToDo(task)}
+                />
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
 
       <div className="box-work">
-        <div className="p-title">Tarefas em Andamento</div>
+        <div className="p-title">
+          <p>Tarefas em Andamento</p>
+        </div>
+
         <div className="result">
           {doing.map((task, index) => (
             <div className="result-work" key={index}>
@@ -120,7 +129,7 @@ export const Cards = () => {
                   className="icon-arrow"
                   onClick={() => moveToDone(task)}
                 />
-                <AiOutlineClose
+                <HiX
                   className="icon-close"
                   onClick={() => deleteTaskDoing(task)}
                 />
@@ -130,13 +139,15 @@ export const Cards = () => {
         </div>
       </div>
       <div className="box-work">
-        <p className="p-title">Tarefas Finalizadas!</p>
+        <div className="p-title">
+          <p>Tarefas Finalizadas</p>
+        </div>
         <div className="result">
           {done.map((task, index) => (
             <div className="result-work" key={index}>
               <span>{task}</span>
               <div className="container-icons">
-                <AiOutlineClose
+                <HiX
                   className="icon-close"
                   onClick={() => deleteTaskDone(task)}
                 />

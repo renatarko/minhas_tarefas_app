@@ -17,7 +17,7 @@
 
 .header-input {
   display: flex;
-  width: 100%
+  width: 100%;
   gap: 1rem;
 }
 
@@ -68,14 +68,16 @@
   .icon-plus {
     display: block;
     position: absolute;
-    top: -1.5rem;
+    top: -1.8rem;
     left: 0;
     right: 0;
     margin: 0 auto;
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #0c855f;
     cursor: pointer;
     transition: 0.3s;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+      rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   }
 
   .icon-plus:hover {
@@ -105,6 +107,5 @@
 
   .title {
     display: none;
- }
-
+  }
 }

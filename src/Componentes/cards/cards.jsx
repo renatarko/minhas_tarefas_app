@@ -93,11 +93,13 @@ export const Cards = () => {
   return (
     <>
       <div className="container">
-        <div className="p-title">
+        <div
+          className="p-title"
+          onClick={() => setShowBox({ do: !showBox.do })}
+        >
           <p className="p-works">Tarefas para fazer</p>
           <HiChevronDown
             className="icon-showMore"
-            onClick={() => setShowBox({ do: !showBox.do })}
             style={showBox.do ? { transform: "rotate(180deg)" } : ""}
             name="do"
           />
@@ -105,7 +107,7 @@ export const Cards = () => {
 
         <div
           className="box-work"
-          style={showBox.do ? { height: "auto" } : { height: "6rem" }}
+          style={showBox.do ? { height: "auto" } : { height: "7.5rem" }}
         >
           <div className="result">
             {todo.map((task, index) => (
@@ -128,18 +130,20 @@ export const Cards = () => {
       </div>
 
       <div className="container">
-        <div className="p-title">
+        <div
+          className="p-title"
+          onClick={() => setShowBox({ doing: !showBox.doing })}
+        >
           <p className="p-works">Tarefas em Andamento</p>
           <HiChevronDown
             className="icon-showMore"
-            onClick={() => setShowBox({ doing: !showBox.doing })}
             style={showBox.doing ? { transform: "rotate(180deg)" } : ""}
             name="doing"
           />
         </div>
         <div
           className="box-work"
-          style={showBox.doing ? { height: "auto" } : { height: "6rem" }}
+          style={showBox.doing ? { height: "auto" } : { height: "7.5rem" }}
         >
           <div className="result">
             {doing.map((task, index) => (
@@ -162,18 +166,20 @@ export const Cards = () => {
       </div>
 
       <div className="container">
-        <div className="p-title">
+        <div
+          className="p-title"
+          onClick={() => setShowBox({ done: !showBox.done })}
+        >
           <p className="p-works">Tarefas Finalizadas</p>
           <HiChevronDown
             className="icon-showMore"
             name="done"
-            onClick={() => setShowBox({ done: !showBox.done })}
             style={showBox.done ? { transform: "rotate(180deg)" } : ""}
           />
         </div>
         <div
           className="box-work"
-          style={showBox.done ? { height: "auto" } : { height: "6rem" }}
+          style={showBox.done ? { height: "auto" } : { height: "7.5rem" }}
         >
           <div className="result">
             {done.map((task, index) => (

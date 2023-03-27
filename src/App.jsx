@@ -8,7 +8,7 @@ export const App = () => {
   return (
     <div className="App">
       <main className="main">
-        <p className="me">Feito por Renata K.</p>
+        <p className="me">Feito com ♥️ por &#64;renata_rko</p>
         <Header />
 
         <section className="container-box">

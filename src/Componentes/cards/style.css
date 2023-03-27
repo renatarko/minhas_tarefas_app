@@ -11,7 +11,7 @@
   padding: 0.5rem;
   box-shadow: rgba(50, 93, 61, 0.356) 0px 2px 5px -1px,
     rgba(0, 0, 0, 0.986) 0px 1px 3px -5px;
-  border-bottom: 1.2px solid #fdba01;
+  border-bottom: 1.2px solid #fff;
 }
 
 .box-work::-webkit-scrollbar {
@@ -105,7 +105,7 @@ span {
 
 .icon-showMore {
   font-size: 1.3rem;
-  color: #fdba01;
+  color: #fff;
   transition: 0.3s;
   cursor: pointer;
 }
@@ -116,11 +116,6 @@ span {
 }
 
 @media (max-width: 655px) {
-  .container-box {
-    flex-direction: column;
-    top: 3rem;
-  }
-
   .p-title {
     width: 100%;
     display: flex;
@@ -129,6 +124,7 @@ span {
     justify-content: space-between;
     align-items: center;
     padding: 0 1rem;
+    margin-bottom: 1rem;
   }
 
   .p-works {

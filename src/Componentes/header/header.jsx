@@ -18,10 +18,6 @@ export const Header = () => {
     const header = document.querySelector(".header-title");
     header.classList.toggle("show");
   }
-
-  return (
-    <>
-      <div className="header-title">
         <h1 className="title">
           Tarefas do dia - <Time />
         </h1>

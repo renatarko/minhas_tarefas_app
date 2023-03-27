@@ -29,6 +29,7 @@ export const Cards = () => {
   const [done, setDone] = useState([]);
 
   React.useEffect(() => {
+
     const _todo = JSON.parse(localStorage.getItem("todo"));
     const _doing = JSON.parse(localStorage.getItem("doing"));
     const _done = JSON.parse(localStorage.getItem("done"));
@@ -188,9 +189,4 @@ export const Cards = () => {
                 </div>
               </div>
             ))}
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
+          </div>   

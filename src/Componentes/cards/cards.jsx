@@ -2,7 +2,6 @@ import React, { useState, useContext } from "react";
 import { FaChevronRight } from "react-icons/fa";
 import { HiCheck, HiChevronDown, HiX } from "react-icons/hi";
 import { TaskContext } from "../../context/TaskProvider";
-import { Time } from "../header/time";
 import "./style.css";
 
 const storeRemoveTodo = (todo) => {
@@ -29,7 +28,6 @@ export const Cards = () => {
   const [done, setDone] = useState([]);
 
   React.useEffect(() => {
-
     const _todo = JSON.parse(localStorage.getItem("todo"));
     const _doing = JSON.parse(localStorage.getItem("doing"));
     const _done = JSON.parse(localStorage.getItem("done"));
@@ -189,4 +187,9 @@ export const Cards = () => {
                 </div>
               </div>
             ))}
-          </div>   
+          </div>
+        </div>
+      </div>
+    </>
+  );
+};

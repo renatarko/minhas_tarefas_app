@@ -1,127 +1,192 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { FaChevronRight } from "react-icons/fa";
-import { AiOutlineCloseCircle } from "react-icons/ai";
+import { HiCheck, HiChevronDown, HiX } from "react-icons/hi";
+import { TaskContext } from "../../context/TaskProvider";
+import { Time } from "../header/time";
 import "./style.css";
 
-import Draggable from "react-draggable";
+const storeRemoveTodo = (todo) => {
+  localStorage.setItem("todo", JSON.stringify(todo));
+};
 
-export const Cards = ({ newTask }) => {
-  const [toDo, setToDo] = useState([]);
-  const [toDoing, setToDoing] = useState([]);
-  const [toDone, setToDone] = useState([]);
+const storeDoing = (doing) => {
+  localStorage.setItem("doing", JSON.stringify(doing));
+};
 
-  // const handleTask = () => {
-  //   setToDo([...toDo, newTask])
-  //   setNewTask("")
-  //   console.log(toDo)
-  // }
+const storeRemoveDoing = (doing) => {
+  localStorage.setItem("doing", JSON.stringify(doing));
+};
+
+const storeDone = (done) => {
+  localStorage.setItem("done", JSON.stringify(done));
+};
+
+export const Cards = () => {
+  const { newTask } = useContext(TaskContext);
+
+  const [todo, setTodo] = useState([]);
+  const [doing, setDoing] = useState([]);
+  const [done, setDone] = useState([]);
 
   React.useEffect(() => {
-    if (newTask.trim() !== "") {
-      setToDo([...toDo, newTask]);
+
+    const _todo = JSON.parse(localStorage.getItem("todo"));
+    const _doing = JSON.parse(localStorage.getItem("doing"));
+    const _done = JSON.parse(localStorage.getItem("done"));
+    if (_todo) {
+      setTodo(_todo);
+    }
+    if (_doing) {
+      setDoing(_doing);
+    }
+    if (_done) {
+      setDone(_done);
+    }
+  }, []);
+
+  React.useEffect(() => {
+    if (newTask && newTask.trim() !== "") {
+      setTodo([...todo, newTask]);
+      console.log(newTask);
+      localStorage.setItem("todo", JSON.stringify([...todo, newTask]));
     }
   }, [newTask]);
 
   const moveToDoing = (task) => {
-    let index = toDo.indexOf(task);
-    toDo.splice(index, 1);
-    setToDoing([...toDoing, task]);
-    console.log(toDoing);
+    let filteredMovedToDoing = todo.filter((item) => item !== task);
+    setTodo(filteredMovedToDoing);
+    setDoing([...doing, task]);
+    storeRemoveTodo(filteredMovedToDoing);
+    storeDoing([...doing, task]);
   };
 
   const moveToDone = (task) => {
-    let index = toDoing.indexOf(task);
-    toDoing.splice(index, 1);
-    setToDoing(...toDoing.filter((item) => item !== task));
-    setToDone([...toDone, task]);
+    let filteredMovedToDone = doing.filter((item) => item !== task);
+    setDoing(filteredMovedToDone);
+    setDone([...done, task]);
+    storeRemoveDoing(filteredMovedToDone);
+    storeDone([...done, task]);
   };
 
   const deleteTaskToDo = (task) => {
-    const arrayFilterToDo = toDo.filter((valorAtual) => {
-      return valorAtual !== task;
-    });
-    setToDo([...arrayFilterToDo]);
+    let filteredTodo = todo.filter((item) => item !== task);
+    setTodo(filteredTodo);
+    localStorage.setItem("todo", JSON.stringify(filteredTodo));
   };
 
-  const deleteTaskToDoing = (task) => {
-    let index = toDoing.indexOf(task);
-    toDoing.splice(index, 1);
-    setToDo([...toDoing]);
+  const deleteTaskDoing = (task) => {
+    let filteredDoing = doing.filter((item) => item !== task);
+    setDoing(filteredDoing);
+    localStorage.setItem("doing", JSON.stringify(filteredDoing));
   };
 
-  const deleteTaskToDone = (task) => {
-    const arrayFilterToDone = toDone.filter((valorAtual) => {
-      return valorAtual !== task;
-    });
-    setToDone([...arrayFilterToDone]);
-    // setToDone(...toDone.filter( item  => item !== task))
-    console.log(arrayFilterToDone);
+  const deleteTaskDone = (task) => {
+    let filtedDone = done.filter((item) => item !== task);
+    setDone(filtedDone);
+    localStorage.setItem("done", JSON.stringify(filtedDone));
   };
+
+  const [showBox, setShowBox] = useState({
+    do: false,
+    doing: false,
+    done: false,
+  });
 
   return (
     <>
-      <div className="box-work">
-        <div className="box-title">
-          <p className="p-title">Tarefas para fazer!</p>
+      <div className="container">
+        <div className="p-title">
+          <p className="p-works">Tarefas para fazer</p>
+          <HiChevronDown
+            className="icon-showMore"
+            onClick={() => setShowBox({ do: !showBox.do })}
+            style={showBox.do ? { transform: "rotate(180deg)" } : ""}
+            name="do"
+          />
+        </div>
 
-          <Draggable axis="x" bounds="parent">
-            <div className="result">
-              {toDo.map((task) => (
-                <div className="result-work" key={task}>
-                  <span>{task}</span>
-                  <div className="container-icons">
-                    <FaChevronRight
-                      className="icon-arrow"
-                      onClick={() => moveToDoing(task)}
-                    />
-                    <AiOutlineCloseCircle
-                      className="icon-close"
-                      onClick={() => deleteTaskToDo(task)}
-                    />
-                  </div>
+        <div
+          className="box-work"
+          style={showBox.do ? { height: "auto" } : { height: "6rem" }}
+        >
+          <div className="result">
+            {todo.map((task, index) => (
+              <div className="result-work" key={index}>
+                <span>{task}</span>
+                <div className="container-icons">
+                  <FaChevronRight
+                    className="icon-arrow"
+                    onClick={() => moveToDoing(task)}
+                  />
+                  <HiCheck
+                    className="icon-close"
+                    onClick={() => deleteTaskToDo(task)}
+                  />
                 </div>
-              ))}
-            </div>
-          </Draggable>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
-      <div className="box-work">
-        <div className="p-title">Tarefas em Andamento</div>
-        <div className="result">
-          {toDoing.map((task) => (
-            <div draggable="true" className="result-work" key={task}>
-              <span>{task}</span>
-              <div className="container-icons">
-                <FaChevronRight
-                  className="icon-arrow"
-                  onClick={() => moveToDone(task)}
-                />
-                <AiOutlineCloseCircle
-                  className="icon-close"
-                  onClick={() => deleteTaskToDoing(task)}
-                />
+      <div className="container">
+        <div className="p-title">
+          <p className="p-works">Tarefas em Andamento</p>
+          <HiChevronDown
+            className="icon-showMore"
+            onClick={() => setShowBox({ doing: !showBox.doing })}
+            style={showBox.doing ? { transform: "rotate(180deg)" } : ""}
+            name="doing"
+          />
+        </div>
+        <div
+          className="box-work"
+          style={showBox.doing ? { height: "auto" } : { height: "6rem" }}
+        >
+          <div className="result">
+            {doing.map((task, index) => (
+              <div className="result-work" key={index}>
+                <span>{task}</span>
+                <div className="container-icons">
+                  <FaChevronRight
+                    className="icon-arrow"
+                    onClick={() => moveToDone(task)}
+                  />
+                  <HiCheck
+                    className="icon-close"
+                    onClick={() => deleteTaskDoing(task)}
+                  />
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
-      <div className="box-work">
-        <p className="p-title">Tarefas Finalizadas!</p>
-        <div className="result">
-          {toDone.map((task) => (
-            <div className="result-work" key={task}>
-              <span>{task}</span>
-              <div className="container-icons">
-                <AiOutlineCloseCircle
-                  className="icon-close"
-                  onClick={() => deleteTaskToDone(task)}
-                />
-              </div>
-            </div>
-          ))}
+
+      <div className="container">
+        <div className="p-title">
+          <p className="p-works">Tarefas Finalizadas</p>
+          <HiChevronDown
+            className="icon-showMore"
+            name="done"
+            onClick={() => setShowBox({ done: !showBox.done })}
+            style={showBox.done ? { transform: "rotate(180deg)" } : ""}
+          />
         </div>
-      </div>
-    </>
-  );
-};
+        <div
+          className="box-work"
+          style={showBox.done ? { height: "auto" } : { height: "6rem" }}
+        >
+          <div className="result">
+            {done.map((task, index) => (
+              <div className="result-work" key={index}>
+                <span>{task}</span>
+                <div className="container-icons">
+                  <HiCheck
+                    className="icon-close"
+                    onClick={() => deleteTaskDone(task)}
+                  />
+                </div>
+              </div>
+            ))}
+          </div>   

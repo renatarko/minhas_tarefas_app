@@ -1,0 +1,10 @@
+.time {
+  color: #20f8a2;
+  /* margin: 20px; */
+}
+
+@media (max-width: 675px) {
+  .time {
+    font-size: 0.5rem;
+  }
+}

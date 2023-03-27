@@ -13,6 +13,7 @@
 - `Armazenamento no LocalStorage`
 - `Hospedagem: Netlify`
 
+### Responsivo ✔️
 #
 
 #### Pequena demostração de uso: [Teste aqui!](https://minhastarefasapp.netlify.app/)
@@ -21,6 +22,4 @@
 
 #
 
-#### Site responsivo:
 
-<img src="./images/todo_respo.png" width="28%"/>

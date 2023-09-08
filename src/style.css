@@ -42,14 +42,19 @@ body {
   top: 1rem;
 }
 
+.title-mobile {
+  position: fixed;
+  top: 4rem;
+  color: white;
+  letter-spacing: "1px";
+  display: none;
+}
+
 .container-box {
   width: 100%;
   display: flex;
-  /* justify-items: center; */
   gap: 12px;
   padding: 0px 10px;
-  /* position: absolute; */
-  /* top: 8rem; */
   margin-top: 1rem;
 }
 
@@ -119,6 +124,10 @@ body {
   .main {
     padding-left: 1rem;
     padding-right: 1rem;
+  }
+
+  .title-mobile {
+    display: block;
   }
 
   .open-progress {

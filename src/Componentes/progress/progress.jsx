@@ -27,9 +27,9 @@ export const Progress = () => {
     }
 
     return setPercent({
-      perDo: todoPercent,
-      perDoing: doingPercent,
-      perDone: donePercent,
+      perDo: parseInt(todoPercent),
+      perDoing: parseInt(doingPercent),
+      perDone: parseInt(donePercent),
     });
   };
 

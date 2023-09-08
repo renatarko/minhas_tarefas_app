@@ -9,16 +9,7 @@ export const App = () => {
   return (
     <main className="main">
       <p className="me">Feito com ♥️ por &#64;renata_rko</p>
-      <h3
-        style={{
-          position: "fixed",
-          top: "8rem",
-          color: "white",
-          letterSpacing: "1px",
-        }}
-      >
-        Todo List
-      </h3>
+      <h3 className="title-mobile">Todo List</h3>
       <section className="section">
         <Header />
         <Cards />

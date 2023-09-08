@@ -56,7 +56,7 @@
 }
 
 .container-textfield {
-  color: #f9fcfb;
+  color: white;
   text-align: center;
 }
 
@@ -69,6 +69,7 @@
     z-index: 100;
     height: 0rem;
     transition: 0.4s;
+    padding: 0 1rem;
   }
 
   .icon-plus {
@@ -92,7 +93,7 @@
 
   .header-title.show .icon-plus {
     transform: rotate(45deg);
-    box-shadow: 0px 0px 5px 2px #00000046;
+    box-shadow: 0px 0px 3px 2px #742e6a46;
   }
 
   .header-title.show {

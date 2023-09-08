@@ -3,18 +3,18 @@ import "./style.css";
 
 import { Header } from "./Componentes/header/header";
 import { Cards } from "./Componentes/cards/cards";
+import { Progress } from "./Componentes/progress/progress";
 
 export const App = () => {
   return (
-    <div className="App">
-      <main className="main">
-        <p className="me">Feito com ♥️ por &#64;renata_rko</p>
+    <main className="main">
+      <p className="me">Feito com ♥️ por &#64;renata_rko</p>
+      <h3 className="title-mobile">Todo List</h3>
+      <section className="section">
         <Header />
-
-        <section className="container-box">
-          <Cards />
-        </section>
-      </main>
-    </div>
+        <Cards />
+      </section>
+      <Progress />
+    </main>
   );
 };

@@ -1,50 +1,50 @@
 .header-title {
-  width: 100%;
-  height: 16rem;
   display: flex;
   flex-direction: column;
-  justify-content: start;
-  align-items: start;
-  padding: 1rem;
+  padding: 2rem 1rem;
   gap: 0.5rem;
 }
 
 .title {
-  color: #20f8a2;
+  color: white;
   font-size: 1.2rem;
   letter-spacing: 1.7px;
+  text-align: center;
 }
 
 .header-input {
   display: flex;
-  width: 100%;
+  justify-content: center;
   gap: 1rem;
+  margin-top: 1rem;
 }
 
 .input-add {
-  width: 50%;
+  width: 25%;
   padding: 0.6rem;
   border-radius: 5px;
   border: 1px solid transparent;
   outline: none;
   font-family: "Mochiy Pop One", sans-serif;
-  background-color: #dfe7e5;
+  background-color: #f9fcfb;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
 
 .input-add:focus {
-  border-color: #0b9468;
+  border-color: #9d89f8;
 }
 
 .button-add {
   padding: 0.7rem;
   border-radius: 5px;
   border: none;
-  background-color: #dfe7e5;
+  background: rgb(80, 3, 131);
   cursor: pointer;
   box-shadow: 0px 0px 5px 2px rgba(0, 0, 0, 0.1);
   font-family: "Mochiy Pop One", sans-serif;
-  transition: all 0.1s;
-  color: #0b4d32;
+  transition: transform 0.1s;
+  letter-spacing: 1px;
+  color: #f9fcfb;
 }
 
 .button-add:hover {
@@ -55,14 +55,21 @@
   display: none;
 }
 
+.container-textfield {
+  color: white;
+  text-align: center;
+}
+
 @media (max-width: 655px) {
   .header-title {
     position: fixed;
     bottom: 0;
+    left: 0;
+    right: 0;
     z-index: 100;
     height: 0rem;
     transition: 0.4s;
-    background: none;
+    padding: 0 1rem;
   }
 
   .icon-plus {
@@ -73,7 +80,7 @@
     right: 0;
     margin: 0 auto;
     font-size: 2.5rem;
-    color: #0c855f;
+    color: white;
     cursor: pointer;
     transition: 0.3s;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
@@ -86,11 +93,13 @@
 
   .header-title.show .icon-plus {
     transform: rotate(45deg);
+    box-shadow: 0px 0px 3px 2px #742e6a46;
   }
 
   .header-title.show {
-    height: 7rem;
-    background-color: #0c855f;
+    height: 10rem;
+    background-color: white;
+    border-radius: 1.5rem 1.5rem 0px 0px;
   }
 
   .header-title.header-title.show .header-input {
@@ -99,6 +108,15 @@
     justify-content: center;
     align-items: center;
     opacity: 1;
+    margin-top: 0;
+  }
+
+  .header-input .input-add {
+    width: max-content;
+  }
+
+  .header-input .input-add:focus {
+    border: 1px solid #9c04ca;
   }
 
   .header-input {

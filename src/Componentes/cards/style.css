@@ -1,138 +1,59 @@
-.container {
+.cards-container {
   width: 100%;
-}
-
-.box-work {
-  background-color: #272626;
-  width: 100%;
-  height: 80%;
-  border-radius: 10px;
-  overflow-y: scroll;
-  padding: 0.5rem;
-  box-shadow: rgba(50, 93, 61, 0.356) 0px 2px 5px -1px,
-    rgba(0, 0, 0, 0.986) 0px 1px 3px -5px;
-  border-bottom: 1.2px solid #fff;
-}
-
-.box-work::-webkit-scrollbar {
-  width: 5px;
-}
-
-.box-work::-webkit-scrollbar-thumb {
-  background: #363636;
-  border-radius: 10px;
-}
-
-.box-title {
-  width: 100%;
-  text-align: center;
-}
-
-.p-title {
-  width: 100%;
+  height: 100%;
   display: flex;
-  color: #20f8a2;
-  font-size: 1.2rem;
-  text-align: center;
   justify-content: space-between;
-  align-items: center;
-  margin-bottom: 2rem;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.container {
+  min-width: max-content;
+  width: 100%;
+  background-color: rgb(247, 240, 240);
+  border-radius: 0.5rem;
+  overflow: hidden;
 }
 
 .p-works {
-  border-bottom: 1.5px solid #20f8a2;
-  padding-bottom: 0.7rem;
+  text-align: center;
+  background-color: #7002b9;
+  padding: 1rem 0;
+  color: white;
 }
 
 .result {
-  width: 100%;
-  height: auto;
-  padding: 5px;
-  margin-top: 1.5rem;
-  display: grid;
-  gap: 10px;
-}
-
-span {
-  text-align: start;
+  margin-top: 0.5rem;
 }
 
 .result-work {
-  background-color: #20f8a2;
-  border-radius: 5px;
-  font-size: 0.9rem;
-  padding: 8px;
+  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  padding: 0.8rem 1rem;
+  border-bottom: 1px solid #866b973f;
 }
 
-.result-work:hover {
-  transform: scale(1.01);
+.progress {
+  height: 5px;
+  width: 2rem;
+  border-radius: 1rem;
 }
 
-span {
-  color: #161616;
-}
-
-.container-icons {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-.icon-arrow {
-  color: #161616;
-  cursor: pointer;
-  transition: all 0.2s;
-  font-size: 1rem;
-}
-
-.icon-arrow:hover {
-  transform: perspective(5px) scale(1.3);
-}
-
-.icon-close {
-  color: rgb(2, 133, 13);
-  cursor: pointer;
-  transition: all 0.2s;
-  font-size: 1.1rem;
-}
-
-.icon-close:hover {
-  transform: perspective(5px) scale(1.3);
-}
-
-.icon-showMore {
-  font-size: 1.3rem;
-  color: #fff;
-  transition: 0.3s;
+.icon {
+  font-size: 0.8rem;
+  color: #7002b9;
   cursor: pointer;
 }
 
-.icon-showMore:hover {
-  border-radius: 50%;
-  background-color: #363636;
-}
-
-@media (max-width: 655px) {
-  .p-title {
-    width: 100%;
-    display: flex;
-    justify-content: start;
-    font-size: 0.9rem;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 1rem;
-    margin-bottom: 1rem;
+@media (max-width: 700px) {
+  .cards-container {
+    flex-direction: column;
+    justify-content: center;
   }
 
-  .p-works {
-    border: none;
-    padding-bottom: 0;
-  }
-
-  .result {
-    margin-top: 0;
+  .container {
+    min-height: 10rem;
   }
 }

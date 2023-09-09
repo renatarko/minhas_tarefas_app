@@ -7,7 +7,7 @@
 ## Frameworks, Hooks e Ferramentas utilizadas 🔨
 
 - `ViteJS`
-- `React Native`
+- `React`
 - `UseState()`
 - `Context API`
 - `Armazenamento no LocalStorage`

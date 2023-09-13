@@ -71,47 +71,48 @@ export const Card = ({ title, tasks }) => {
         <p className="p-works">{title}</p>
 
         <ul className="result">
-          {tasks.map((task, index) => (
-            <li className="result-work" key={index}>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "0.3rem",
-                }}
-              >
-                <span>{task}</span>
-                <p
-                  className="progress"
-                  style={
-                    (title === "Fazer" && {
-                      background: "#7002b9",
-                    }) ||
-                    (title === "Fazendo" && {
-                      background: "#f3cf06",
-                    }) ||
-                    (title === "Feito" && {
-                      background: "#01be0a",
-                    })
-                  }
-                />
-                <p style={{ fontSize: "10px", color: "#706e6e" }}>
-                  {createdAt}
-                </p>
-              </div>
-              {title !== "Feito" ? (
-                <FaChevronRight
-                  className="icon"
-                  onClick={() => moveToNextTask(task)}
-                />
-              ) : (
-                <FaCheck
-                  className="icon icon-close"
-                  onClick={() => deleteTask(task)}
-                />
-              )}
-            </li>
-          ))}
+          {tasks.length !== 0 &&
+            tasks.map((task, index) => (
+              <li className="result-work" key={index}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.3rem",
+                  }}
+                >
+                  <span>{task}</span>
+                  <p
+                    className="progress"
+                    style={
+                      (title === "Fazer" && {
+                        background: "#7002b9",
+                      }) ||
+                      (title === "Fazendo" && {
+                        background: "#f3cf06",
+                      }) ||
+                      (title === "Feito" && {
+                        background: "#01be0a",
+                      })
+                    }
+                  />
+                  <p style={{ fontSize: "10px", color: "#706e6e" }}>
+                    {createdAt}
+                  </p>
+                </div>
+                {title !== "Feito" ? (
+                  <FaChevronRight
+                    className="icon"
+                    onClick={() => moveToNextTask(task)}
+                  />
+                ) : (
+                  <FaCheck
+                    className="icon icon-close"
+                    onClick={() => deleteTask(task)}
+                  />
+                )}
+              </li>
+            ))}
         </ul>
       </div>
     </>

@@ -67,7 +67,7 @@
     left: 0;
     right: 0;
     z-index: 100;
-    height: 0rem;
+    /* height: 0rem; */
     transition: 0.4s;
     padding: 0 1rem;
   }
@@ -94,10 +94,12 @@
   .header-title.show .icon-plus {
     transform: rotate(45deg);
     box-shadow: 0px 0px 3px 2px #742e6a46;
+    color: #9c04ca;
   }
 
   .header-title.show {
-    height: 10rem;
+    height: max-content;
+    padding: 4rem 1rem;
     background-color: white;
     border-radius: 1.5rem 1.5rem 0px 0px;
   }

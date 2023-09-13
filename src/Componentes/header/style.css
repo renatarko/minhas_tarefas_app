@@ -94,7 +94,7 @@
   .header-title.show .icon-plus {
     transform: rotate(45deg);
     box-shadow: 0px 0px 3px 2px #742e6a46;
-    color: #9c04ca;
+    /* color: #9c04ca; */
   }
 
   .header-title.show {

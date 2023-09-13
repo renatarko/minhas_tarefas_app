@@ -7,7 +7,7 @@
 ## Frameworks, Hooks e Ferramentas utilizadas 🔨
 
 - `ViteJS`
-- `React Native`
+- `React`
 - `UseState()`
 - `Context API`
 - `Armazenamento no LocalStorage`
@@ -18,8 +18,12 @@
 
 #### Pequena demostração de uso: [Teste aqui!](https://minhastarefasapp.netlify.app/)
 
-<img src="./images/todo_list.gif"/>
+<img src="./images/todo_list.gif" width={200} height={200}/>
 
-#
+![image](https://github.com/renatarko/to_do_app/assets/106983293/6e934ec1-c746-4f1c-b884-3492e0badc4a)
+
+Última atualização: 08/09/2023
+
+
 
 

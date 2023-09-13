@@ -65,16 +65,12 @@ export const Card = ({ title, tasks }) => {
     newCreatedAt();
   }, [newTask]);
 
-  const resultStyle = {
-    background: !tasks.length ? "red" : "white",
-  };
-
   return (
     <>
       <div className="container">
         <p className="p-works">{title}</p>
 
-        <ul className="result" style={resultStyle}>
+        <ul className="result">
           {tasks.length !== 0 &&
             tasks.map((task, index) => (
               <li className="result-work" key={index}>

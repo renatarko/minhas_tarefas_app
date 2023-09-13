@@ -30,10 +30,19 @@ export const Cards = () => {
   }, [newTask]);
 
   return (
-    <section className="cards-container">
-      <Card title="Fazer" tasks={todo} />
-      <Card title="Fazendo" tasks={doing} />
-      <Card title="Feito" tasks={done} />
-    </section>
+    <>
+      {!todo.length && !doing.length && !done.length ? (
+        <section className="msg-empty">
+          <p>Vamos começar!</p>
+          <p>Crie sua primeira tarefa! &#9997;</p>
+        </section>
+      ) : (
+        <section className="cards-container">
+          <Card title="Fazer" tasks={todo} />
+          <Card title="Fazendo" tasks={doing} />
+          <Card title="Feito" tasks={done} />
+        </section>
+      )}
+    </>
   );
 };

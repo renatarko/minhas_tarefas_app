@@ -9,10 +9,11 @@
 
 .container {
   min-width: max-content;
+  max-height: 35rem;
   width: 100%;
   background-color: rgb(247, 240, 240);
   border-radius: 0.5rem;
-  overflow: hidden;
+  overflow: auto;
 }
 
 .p-works {
@@ -47,13 +48,29 @@
   cursor: pointer;
 }
 
+.msg-empty {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: white;
+  font-size: 1.5rem;
+}
+
 @media (max-width: 700px) {
   .cards-container {
     flex-direction: column;
     justify-content: center;
   }
 
+  .msg-empty {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 500px) {
   .container {
-    min-height: 10rem;
+    max-height: 20rem;
   }
 }

@@ -8,7 +8,7 @@ export const Progress = () => {
     perDoing: 0,
     perDone: 0,
   });
-  const [openProgress, setOpenProgress] = useState(true);
+  const [openProgress, setOpenProgress] = useState(false);
   const { todo, doing, done } = useContext(TaskContext);
 
   const calculatorOfProgress = () => {
@@ -55,6 +55,40 @@ export const Progress = () => {
         <FaBars size={25} style={menuStyle} />
       </button>
       <table className="container-progress" style={modalStyle}>
+        <h4>Seu progresso</h4>
+
+        <tr className="content-progress">
+          <td className="task-name">Para fazer</td>
+          <td
+            className="barra-progress"
+            style={{ borderColor: "#7002b9", borderLeftWidth: percent.perDo }}
+          ></td>
+          <td className="percent">{percent.perDo}%</td>
+        </tr>
+
+        <tr className="content-progress">
+          <td className="task-name">Iniciado</td>
+          <td
+            className="barra-progress"
+            style={{
+              borderColor: "#f3cf06",
+              borderLeftWidth: percent.perDoing,
+            }}
+          ></td>
+          <td className="percent">{percent.perDoing}%</td>
+        </tr>
+
+        <tr className="content-progress">
+          <td className="task-name">Finalizado</td>
+          <td
+            className="barra-progress"
+            style={{ borderLeftWidth: percent.perDone, borderColor: "#01be0a" }}
+          ></td>
+          <td className="percent">{percent.perDone}%</td>
+        </tr>
+      </table>
+
+      <table className="container-progress desktop">
         <h4>Seu progresso</h4>
 
         <tr className="content-progress">
